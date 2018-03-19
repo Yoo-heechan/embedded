@@ -38,4 +38,4 @@ uname -a : 시스템 정보 확인
 Practice 5. Store System Information 
 
 cat /etc/passwd | awk -F: '{print $1}' > ~/system_info.txt : ~ 디렉토리에 system_info.txt파일을 생성하여 사용자 ID 목록 저장
-cat /proc/cpuinfo | grep CPU >> ~/system_info.txt : system_info.txt파일에 cpu 정보 추가
+cat /proc/cpuinfo | grep CPU >> ~/system_info.txt : system_info.txt파일에 cpu 정보 추가embedded
