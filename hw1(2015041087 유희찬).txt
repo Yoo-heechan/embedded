@@ -1,0 +1,41 @@
+Practice 1. Access to Linux
+
+sudo apt-get install openssh-server : 우분투 ssh 서버 설치
+service ssh start : 리눅스 ssh 서비스 시작
+ssh -oPort=10022 pi@192.168.1.102 : 해당 로컬호스트에, 포트 번호 10022 ssh 접속
+
+Practice 2. Intallation with apt-get
+
+sudo apt-get update : 컴파일러 버전 업데이트
+sudo apt-get install vim : vi 편집기 설치
+sudo apt-get install g++ : g++ 설치
+sudo vi /etc/apt/sources.list : 라즈비안 미러주소 파일
+	deb http://ftp.kaist.ac.kr/raspbian/raspbian/ jessie main contrib non-free rpi : apt-get repositort를 카이스트에서 업데이트
+
+Practice 3. Account Management
+
+sudo adduser ejlee : 유저 등록
+	새 암호 입력 : embedded
+	새 암호 재입력 : embedded
+	이름 : ejlee
+	방 번호 : ejlee
+	직장 번호 : ejlee
+	집 전화번호 : ejlee
+	기타 : ejlee	
+sudo passwd ejlee
+	새 암호 입력 : 12345
+	새 암호 재입력 : 12345
+cat /etc/passwd : 사용자 계정 확인
+
+Practice 4. Check System Information 
+
+cat /etc/passwd | awk -F: '{print $1}' | sort : 모든 사용자 ID를 오름차순으로 나열
+grep -c processor /proc/cpuinfo : CPU 코어 전체 개수
+cat /proc/meminfo | grep Mem : 메모리 크기
+getconf LONG_BIT : 리눅스 비트 확인
+uname -a : 시스템 정보 확인
+
+Practice 5. Store System Information 
+
+cat /etc/passwd | awk -F: '{print $1}' > ~/system_info.txt : ~ 디렉토리에 system_info.txt파일을 생성하여 사용자 ID 목록 저장
+cat /proc/cpuinfo | grep CPU >> ~/system_info.txt : system_info.txt파일에 cpu 정보 추가
